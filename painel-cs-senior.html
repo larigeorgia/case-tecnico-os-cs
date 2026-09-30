@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Case CS Sênior · Lariça Geórgia</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22none%22%20stroke%3D%22%23E11D48%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%0A%20%20%3Cpolyline%20points%3D%2216%2018%2022%2012%2016%206%22%3E%3C/polyline%3E%0A%20%20%3Cpolyline%20points%3D%228%206%202%2012%208%2018%22%3E%3C/polyline%3E%0A%20%20%3Cline%20x1%3D%2214%22%20y1%3D%224%22%20x2%3D%2210%22%20y2%3D%2220%22%3E%3C/line%3E%0A%3C/svg%3E">
+    <style>
+        :root {
+            box-sizing: border-box;
+            padding-top: env(safe-area-inset-top, 0px);
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+            --bg: #161616;
+            --panel: #141416;
+            --line: #26262a;
+            --tx: #f2f1ed;
+            --mute: #9a9a9f;
+            --acc: #f2f1ed;
+            --g: #3ecf8e;
+            --y: #f5b942;
+            --r: #ef5b5b
+        }
+
+        :root[data-theme="light"] {
+            --bg: #f6f5f2;
+            --panel: #fff;
+            --line: #deddd8;
+            --tx: #0a0a0b;
+            --mute: #66666b;
+            --acc: #0a0a0b
+        }
+
+        @media(prefers-color-scheme:light) {
+            :root:not([data-theme="dark"]) {
+                --bg: #f6f5f2;
+                --panel: #fff;
+                --line: #deddd8;
+                --tx: #0a0a0b;
+                --mute: #66666b;
+                --acc: #0a0a0b
+            }
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-padding-top: env(safe-area-inset-top, 0px)
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--tx);
+            font: 15px/1.5 "Helvetica Neue", Arial, sans-serif
+        }
+
+        main {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 24px 16px 48px
+        }
+
+        h1 {
+            font-size: 28px;
+            margin: 0 0 4px;
+            letter-spacing: -.02em
+        }
+
+        h2 {
+            font-size: 18px;
+            margin: 28px 0 10px
+        }
+
+        h3 {
+            font-size: 15px;
+            margin: 0 0 6px
+        }
+
+        p.s {
+            color: var(--mute);
+            margin: 0 0 16px
+        }
+
+        nav {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin: 16px 0;
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 12px
+        }
+
+        nav button {
+            background: none;
+            border: 1px solid var(--line);
+            color: var(--mute);
+            padding: 7px 14px;
+            border-radius: 99px;
+            cursor: pointer;
+            font: inherit
+        }
+
+        nav button.on {
+            background: var(--acc);
+            color: var(--bg);
+            border-color: var(--acc)
+        }
+
+        nav button:focus-visible {
+            outline: 2px solid var(--y);
+            outline-offset: 2px
+        }
+
+        section {
+            display: none
+        }
+
+        section.on {
+            display: block
+        }
+
+        .kp {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px
+        }
+
+        .k {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 12px
+        }
+
+        .k b {
+            display: block;
+            font-size: 24px
+        }
+
+        .k span {
+            color: var(--mute);
+            font-size: 13px
+        }
+
+        .g2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px
+        }
+
+        .c {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 14px
+        }
+
+        .tw {
+            overflow-x: auto
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            min-width: 760px
+        }
+
+        #pr {
+            min-width: 0
+        }
+
+        @media(max-width:1100px) {
+            #pr {
+                min-width: 1100px
+            }
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 9px 10px;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top;
+            font-size: 14px
+        }
+
+        th {
+            color: var(--mute);
+            font-weight: 500
+        }
+
+        .p {
+            display: inline-block;
+            padding: 1px 9px;
+            border-radius: 99px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #0a0a0b
+        }
+
+        .G {
+            background: var(--g)
+        }
+
+        .Y {
+            background: var(--y)
+        }
+
+        .R {
+            background: var(--r)
+        }
+
+        .bar {
+            height: 8px;
+            background: var(--line);
+            border-radius: 9px;
+            overflow: hidden;
+            min-width: 70px
+        }
+
+        .bar i {
+            display: block;
+            height: 100%
+        }
+
+        .tl {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 12px;
+            position: relative
+        }
+
+        .tl .c {
+            border-top: 3px solid var(--acc)
+        }
+
+        .tl ul,
+        .c ul {
+            margin: 6px 0 0;
+            padding-left: 18px
+        }
+
+        .tl li,
+        .c li {
+            margin: 3px 0
+        }
+
+        .m {
+            color: var(--mute);
+            font-size: 13px
+        }
+
+        pre {
+            white-space: pre-wrap;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 14px;
+            font: inherit
+        }
+
+        .tlx {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            margin-top: 10px
+        }
+
+        .tlx>div {
+            position: relative;
+            padding: 24px 14px 0 0
+        }
+
+        .tlx>div:before {
+            content: "";
+            position: absolute;
+            top: 6px;
+            left: 0;
+            right: 0;
+            border-top: 2px solid var(--line)
+        }
+
+        .tlx>div:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--acc);
+            border: 3px solid var(--panel)
+        }
+
+        .tlx ul {
+            margin: 6px 0 0;
+            padding-left: 16px
+        }
+
+        @media(max-width:800px) {
+            .tlx {
+                grid-template-columns: 1fr
+            }
+
+            .tlx>div {
+                padding: 0 0 16px 26px;
+                border-left: 2px solid var(--line)
+            }
+
+            .tlx>div:before {
+                display: none
+            }
+
+            .tlx>div:after {
+                left: -8px;
+                top: 2px
+            }
+        }
+
+        #aur .g2 {
+            grid-template-columns: repeat(3, 1fr);
+            align-items: stretch
+        }
+
+        @media(max-width:1000px) {
+            #aur .g2 {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .flow {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center
+        }
+
+        .flow span {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 8px 12px
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Carteira herdada · Leitura e Plano de Ação</h1>
+        <p class="s">Case CS Sênior · Inside College (fictícia) · 10 contas do Anexo A, indicadores do Anexo B, Call
+            Aurora e plano de 30 dias</p>
+        <h2>Premissas assumidas</h2>
+        <p class="s">Considerei que uma execução ideal em um plano de 12 meses, precisa alcançar 8,33% ao mês
+            (100% / 12 meses = 8,33%) | Assumi que ainda é possível reverter o reembolso do Henrique | Assumi que a entrada do novo cliente veio de uma indicação direta e garantimos o bônus ao mentorado, mesmo que fora do fluxo padrão de afiliados | Considerei que o WhatsApp é o principal meio de contato com os mentorados </p>
+        <nav id="nav"></nav>
+
+        <section id="painel">
+            <div class="kp" id="kp"></div>
+            <h2>Health score por conta (0–100)</h2>
+            <p class="s">4 sinais, 100 pontos: Contato 30 (dentro da cadência) + Execução 30 (vs esperado = mês × 8,33%)
+                + Faturamento 20 (crescimento) + NPS 20. Verde ≥ 80 · Amarelo 50–79 · Vermelho &lt; 50. Regra única:
+                alerta crítico (reembolso, promessa não cumprida, frase de cancelamento ou atendimento fora do SLA)
+                desce a conta uma faixa.</p>
+            <div class="tw">
+                <table id="hs"></table>
+            </div>
+            <h2>Receita da carteira</h2>
+            <div class="g2" id="rev"></div>
+        </section>
+
+        <section id="prio">
+            <h2>Ordem de ação da semana</h2>
+            <p class="s">Critério: risco de perda × valor do contrato × urgência de prazo. Prioridade não é a nota do
+                health score: Fábio tem nota alta e é o 2º da fila porque o contrato vence em 12 dias.</p>
+            <div class="tw">
+                <table id="pr"></table>
+            </div>
+        </section>
+
+        <section id="planoa">
+            <section id="planoa">
+                <h2>Operação do time · 3 gargalos e como se ligam</h2>
+                <div class="flow">
+                    <span>Passagem de Bastão Incompleta (Handoff 30% incompleto)</span>→
+                    <span>CS recebe cliente sem perfil/ICP</span>→
+                    <span>Dificulta o atendimento</span>→
+                    <span>Reduz SLA e CSAT</span>
+                    <span>Falta de Rotina de Confirmação (55% confirmação D-1)</span>→
+                    <span>Gera 18% de No-Show nas calls</span>→
+                    <span>Derruba a ocupação da agenda dos estrategistas para 68%</span>
+                    <span>Descontrole do InJourney (36 contas sem próxima etapa)</span>→
+                    <span>Cliente fica esquecido</span>→
+                    <span>Aumenta Churn (3,8%) e reduz Taxa de Renovação (41%)</span>
+                </div>
+                <p class="s" style="margin-top:12px">A agenda tem 32% de folga e mesmo assim a Gabriela
+                    ficou
+                    sem call. O problema não é falta de capacidade, é falta de triagem e de confirmação. Cada
+                    estrategista
+                    tem cerca de 44 contas: 9 contatos ativos por dia cobrem a semana.</p>
+                <div class="g2">
+                    <div class="c">
+                        <h3>Ações dos 30 dias (Lista geral)</h3>
+                        <ul>
+                            <li><b>Checklist de handoff</b> (Comercial + CS): ICP, promessas, bônus. Meta: incompleto de
+                                30%
+                                para 10% na semana 3.</li>
+                            <li><b>Zerar as 36 contas sem próxima etapa</b> (estrategistas): 18 até a semana 2, 36 até a
+                                semana 3.</li>
+                            <li><b>Confirmação D-1</b> por WhatsApp padrão (estrategistas): 55% para 80% na semana 3.
+                            </li>
+                            <li><b>Fila do dia</b> no InJourney com dono e prazo (estrategistas): SLA de 78% para 90% na
+                                semana
+                                4.</li>
+                            <li><b>Nota de bastão obrigatória</b> em toda troca (estrategistas): 100% das trocas.</li>
+                        </ul>
+                    </div>
+                    <div class="c">
+                        <h3>Rotina semanal e daily</h3>
+                        <ul>
+                            <li>Daily de 15 min: (1) fila com SLA em risco, (2) contas vermelhas, (3) agenda de amanhã
+                                confirmada, (4) 1 bloqueio.</li>
+                            <li>Cada pessoa fala o combinado de ontem e o de hoje. Sem julgar, com dado na tela.</li>
+                            <li>Cobrança sem cargo: painel visível, combinado escrito ao fim da daily, pedido direto
+                                ("preciso disso até 16h para fechar a fila").</li>
+                            <li>Sexta: revisão de 30 min dos indicadores e levar 1 gargalo à liderança.</li>
+                        </ul>
+                    </div>
+                    <div class="c">
+                        <h3>IA na rotina</h3>
+                        <ul>
+                            <li><b>Resumo de call:</b> transcrição vira resumo, decisões e passos enviados
+                                direto no InJourney.</li>
+                            <li><b>Plano de ação:</b> meta e contexto viram plano de 7/15/30 dias.</li>
+                            <li><b>Leitura de carteira:</b> planilha de 220 contas gera contas sem contato há mais de 15
+                                dias, risco e sugestão de abordagem.</li>
+                            <li><b>Resposta padrão e revisão de Playbook:</b> rascunhos para reagendamento, confirmação
+                                D-1, e pedido de
+                                desculpas
+                                por atraso, revisados por humano.</li>
+                            <li><b>Regra:</b> dados sensíveis só em ferramenta autorizada. A descisão e revisão final é
+                                humana.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <h2>Plano de Ação de 30 dias (Semanal)</h2>
+            <p class="s">Semana 1 apaga incêndio na carteira. Semanas 2 a 4 tiram a causa dos números do time.</p>
+            <div class="tl" id="tl"></div>
+            <h2>Passagem de bastão</h2>
+            <div class="flow"><span>Comercial preenche ICP, promessas e bônus</span>→<span>Trava: sem ICP, sem entrada
+                    no InJourney</span>→<span>CS faz onboarding em 48h e agenda 1ª call</span>→<span>Estrategista recebe
+                    resumo + próxima etapa</span>→<span>Troca de estrategista exige nota de bastão</span></div>
+
+        </section>
+
+        <section id="aur">
+            <h2>Agência Aurora · call estratégica</h2>
+            <p class="s">Mentoria Elite · mês 11/12 · R$ 35k → R$ 42k (+20%) · meta R$ 80k recorrentes · renovação em 30
+                dias · 3 semanas sem execução. Receita em risco 48k.</p>
+            <p class="s"><b>Gargalo:</b> Excesso de conteúdo teórico e falta de foco, possivelmente causado por falta de
+                rotina de execução.</p>
+            <div class="g2">
+                <div class="c">
+                    <h3>Roteiro (60 min)</h3>
+                    <ul>
+                        <li><b>0–5 Abertura:</b> reconhecer a sobrecarga e nomear o cansaço sem culpar. "Você me disse
+                            que tem muito conteúdo. Então, o nosso foco hoje não é somar mais tarefas, é cortar o que
+                            não está gerando resultado."</li>
+                        <li><b>5–20 Diagnóstico:</b> "Qual foi a última ação que você concluiu e como foi?" · "O que
+                            aconteceu na semana em que travou?" · "Quem além de você pode executar isso hoje?" · "De 0 a
+                            10, quanto essa meta de R$ 80k ainda é sua prioridade?" · "Se só uma ação valesse este mês,
+                            qual moveria o caixa?"</li>
+                        <li><b>20–30 Causa real:</b> separar 4 hipóteses: falta de tempo, falta de time, falta de
+                            clareza da ação, ou prioridade mudou. Devolver a leitura e pedir confirmação.</li>
+                        <li><b>30–45 Plano:</b> escolher 1 funil, 3 ações, cortar o resto.</li>
+                        <li><b>45–55 Renovação:</b> seguir com o roteiro de renovação consultiva.</li>
+                        <li><b>55–60 Encerramento:</b> ler os combinados em voz alta, marcar a próxima call antes de
+                            desligar.</li>
+                    </ul>
+                </div>
+                <div class="c">
+                    <h3>Abertura de renovação consultiva</h3>
+                    <p>Abrir com o resultado, não com o contrato: +20% em 11 meses, e o que faltou para os 80k.
+                        Perguntar "o que precisa ser verdade nos próximos 6 meses para essa meta acontecer?". Só depois
+                        mostrar o que muda no próximo ciclo (menos conteúdo, mais execução assistida). Se os dados dos
+                        30 dias não sustentarem a renovação, dizer isso com honestidade e propor um formato adequado.
+                        Isso protege a confiança e o NPS.</p>
+                </div>
+                <div class="c">
+                    <h3>Follow-up pós-call</h3>
+                    <pre>Oi [nome], obrigado pela conversa de hoje. 
+Combinamos:
+
+1) Até [data +3 dias]: você me envia o funil atual com números de cada etapa.
+2) Até [data +7 dias]: as 3 ações prioritárias concluídas (lista abaixo) e [nome do time] responsável pela ação.
+3) Eu envio hoje o plano de 30 dias enxuto e cuido de [ponto do CS].
+Próxima call: [dia/hora], 30 min, com esses 3 entregáveis. Se algo travar antes, me chame no mesmo dia. Nosso objetivo: sair de R$ 42k para R$ 50k+ recorrentes em 30 dias.</pre>
+                </div>
+                <div class="c" style="grid-column:1/-1">
+                    <h3>Plano 7 / 15 / 30 dias</h3>
+                    <p class="m" style="margin:0 0 4px">Meta do ciclo: sair de R$ 42k para R$ 50k+ recorrentes em 30
+                        dias, rumo aos R$ 80k.</p>
+                    <div class="tlx">
+                        <div><b>Dia 0 · Call</b>
+                            <ul>
+                                <li>Escolher 1 funil e 3 ações</li>
+                                <li>Definir entregáveis e responsáveis</li>
+                                <li class="m">Responsável: CS + Aurora</li>
+                            </ul>
+                        </div>
+                        <div><b>Dia 3 · Checkpoint</b>
+                            <ul>
+                                <li>Mensagem de WhatsApp: o que já andou e o que travou</li>
+                                <li class="m">Responsável: CS</li>
+                            </ul>
+                        </div>
+                        <div><b>Dia 7 · Primeira entrega</b>
+                            <ul>
+                                <li>Funil atual mapeado, com taxa de cada etapa</li>
+                                <li>Plano enxuto de 3 ações</li>
+                                <li>1 tarefa operacional delegada</li>
+                                <li><b>Indicador:</b> 3 ações concluídas</li>
+                                <li><b>Etapa obrigatória:</b> call de 30 min com o entregável na mão</li>
+                                <li class="m">Responsável: Aurora (funil e ações), CS (plano)</li>
+                            </ul>
+                        </div>
+                        <div><b>Dia 15 · Rotina comercial</b>
+                            <ul>
+                                <li>Rotina semanal de leads, propostas e fechamentos rodando</li>
+                                <li>Revisão do resultado na call</li>
+                                <li><b>Indicador:</b> propostas enviadas e taxa de conversão</li>
+                                <li class="m">Responsável: Aurora, com revisão do CS</li>
+                            </ul>
+                        </div>
+                        <div><b>Dia 30 · Decisão</b>
+                            <ul>
+                                <li>Funil com previsão de receita de 3 meses</li>
+                                <li>Meta intermediária: receita recorrente acima de R$ 50k</li>
+                                <li>Decisão de renovação com dados</li>
+                                <li><b>Indicadores:</b> receita recorrente, conversão e % do plano executado</li>
+                                <li class="m">Responsável: CS + Aurora</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+<footer style="margin-top:32px;padding-top:16px;border-top:1px solid var(--line);color:var(--mute);font-size:13px;text-align:center">
+  Case CS Sênior · Lariça Geórgia · Setembro de 2026
+</footer>
+
+    </main>
+    <script>
+        const A = [
+            ["Henrique Paz", "Acelerador", "3/12", 33, "10%", 40, "n/d", "−33%", 0, "R", "Ligar e responder hoje, ouvir o motivo, propor plano de recuperação de 15 dias antes de aprovar o reembolso", "Seg 9h", "Telefone + WhatsApp", "Risco R$ 24k", 24],
+            ["Fábio Nunes", "Elite", "12/12", 2, "90%", 90, "9", "+158%", 100, "G", "Abrir renovação com o resultado e um plano dos próximos 6 meses", "Seg 10h", "WhatsApp + call", "Renovação R$ 48k", 48],
+            ["Bruno Tavares", "Elite", "4/12", 19, "30%", 90, "6", "−11%", 30, "R", "Call de escuta com diagnóstico, rever plano e mostrar o caminho para recuperar o faturamento", "Seg 11h", "WhatsApp + call", "Risco R$ 48k", 48],
+            ["Carla Menezes", "Acelerador", "2/12", 8, "20%", 120, "n/d", "0%", 60, "R", "Cobrar comercial e logística, dar prazo firme de entrega do kit e bônus, retornar à cliente hoje", "Seg 14h", "WhatsApp", "Risco R$ 24k", 24],
+            ["Ana Ribeiro", "Acelerador", "11/12", 3, "85%", 93, "10", "+313%", 100, "G", "Apresentar a Elite com plano de ascensão; checar bônus", "Ter 10h", "WhatsApp + call", "Ascensão +R$ 48k", 48],
+            ["Elaine Souza", "Acelerador", "9/12", 26, "45%", 60, "7", "+9%", 50, "Y", "Reunir histórico dos 3 estrategistas, registrar bastão, call de realinhamento", "Ter 14h", "WhatsApp + call", "Renovação R$ 24k em risco", 24],
+            ["Gabriela Lins", "Acelerador", "6/12", 11, "55%", 110, "8", "R$ 0 → 12k", 90, "Y", "Responder em 5 min, oferecer 2 horários, resolver o atendimento aberto", "Seg 8h30", "WhatsApp", "Renovação / Elite", 24],
+            ["Isabela Castro", "Elite", "8/12", 6, "75%", 112, "10", "+133%", 100, "G", "Call sobre o segundo produto e apresentar portfólio complementar", "Qua 10h", "WhatsApp + call", "Portfólio complementar", 0],
+            ["João Vieira", "Acelerador", "10/12", 14, "60%", 72, "8", "+11%", 65, "Y", "Diagnóstico do funil, atualizar ICP, plano de 60 dias para destravar o faturamento", "Qua 14h", "WhatsApp + call", "Renovação R$ 24k", 24],
+            ["Diego Farias", "Acelerador", "7/12", 5, "70%", 120, "9", "+288%", 100, "G", "Formalizar a indicação, agradecer com o bônus e convidar para o Inside Club", "Qui 10h", "WhatsApp", "Indicação + Inside Club", 0]];
+        const J = {
+            "Ana Ribeiro": "A cliente possui um ótimo NPS (10) o faturamento cresceu bem (+313%). Já está interessada na Mentoria Elite e está na reta final do contrato (mês 11 de 12, vence em 30 dias). Corremos o risco de perder essa ascensão caso haja demora.",
+            "Elaine Souza": "O aumento no faturamento não foi tão grande (+9%) o que pode fazer com que a cliente não perceba valor na mentoria. Ela está na reta final do contrato (penúltimo trimestre) e executou menos de 50% do plano, quando o esperado para o mesmo período era 75%. Acredito que além do risco de redução no NPS existe uma possibilidade de cancelamento, nosso último contato foi há 26 dias.",
+            "Gabriela Lins": "Atendimento aberto há 3 dias úteis, acima do nosso SLA de 24h úteis. A demora pode gerar insatisfação, é necessário marcar reunião, nem que seja com uma janela de tempo maior. Teve um bom aumento de faturamento, levando em consideração ter saído do zero, mas o NPS não está ótimo.",
+            "Henrique Paz": "Cliente com solicitação de cancelamento. Pode virar detrator da marca, sem avaliação de NPS. Teve uma queda no faturamento (-33%). Realizou 10% do plano no primeiro trimestre, a meta era 25%. Está há mais de um mês sem contato, percepção de valor ruim.",
+            "Carla Menezes": "Cliente com grande possibilidade de abrir reclamação no Reclame Aqui e nas redes sociais. Pode virar um detrator da marca, sem avaliação de NPS. O faturamento permaneceu o mesmo com 20% do plano concluído.",
+            "Fábio Nunes": "O cliente possui um ótimo NPS (9) o faturamento cresceu bem (+158%). Está no seu último mês de contrato com 90% do plano realizado. Corremos o risco de perder essa renovação caso haja demora.",
+            "Isabela Castro": "A cliente possui um ótimo NPS (10) o faturamento cresceu bem (+133%). Já está interessada no lançamento de um segundo produto, já conhece nossa dinâmica de trabalho. Está acima da meta de execução do plano (75%), o esperado era 66%. Corremos o risco dela desistir de lançar conosco caso haja demora.",
+            "Bruno Tavares": "Teve queda no faturamento (-11%), pela última mensagem podemos concluir que a percepção de valor dele está baixa. A execução está no limite do esperado (30% contra cerca de 33%), o NPS está ruim (6) e não temos contato há 19 dias, levando em consideração ser da Mentoria Elite isso não deveria ter acontecido.",
+            "João Vieira": "O cliente está no último trimestre do plano com uma execução de 60% onde o esperado seria 83%. Como o faturamento está parado ele pode ter uma baixa percepção de valor e solicitar cancelamento, risco de baixar o NPS (8). Aumento de faturamento não foi tão grande (+11%).",
+            "Diego Farias": "Cliente com um excelente aumento no faturamento (+288%), com a execução do plano acima do esperado e com ótimo NPS (9). Ele pode ficar chateado caso não seja comunicado sobre a bonificação da indicação. Por mais que não tenha sido formalizado."
+        };
+        const L = { G: "Verde", Y: "Amarelo", R: "Vermelho" }, col = { G: "var(--g)", Y: "var(--y)", R: "var(--r)" };
+        const h = (t) => t;
+        const T = { painel: "Carteira", prio: "Prioridades", planoa: "Plano de Ação", aur: "Call Aurora" };
+        const nav = document.getElementById("nav");
+        for (const k in T) { const b = document.createElement("button"); b.textContent = T[k]; b.onclick = () => show(k); b.dataset.k = k; nav.append(b) }
+        function show(k) { document.querySelectorAll("section").forEach(s => s.classList.toggle("on", s.id == k)); nav.querySelectorAll("button").forEach(b => b.classList.toggle("on", b.dataset.k == k)) }
+        show("painel");
+        const cnt = x => A.filter(a => a[9] == x).length;
+        document.getElementById("kp").innerHTML = [["Contas verdes", cnt("G")], ["Amarelas", cnt("Y")], ["Vermelhas", cnt("R")], ["Renovação e ascensão", `R$ ${48 + 48 + 0}k`], ["Receita em risco", "R$ 144k"], ["Receita em risco + Agência Aurora", "R$ 192k"]].map(x => `<div class="k"><b>${x[1]}</b><span>${x[0]}</span></div>`).join("");
+        document.getElementById("hs").innerHTML = "<tr><th>Mentorado</th><th>Plano</th><th>Mês</th><th>Contato</th><th>Execução vs esperado</th><th>NPS</th><th>Faturamento</th><th>Score base</th><th>Faixa final</th></tr>" + [...A].sort((a, b) => a[8] - b[8]).map(a => `<tr><td>${a[0]}</td><td>${a[1]}</td><td>${a[2]}</td><td>${a[3]} dias</td><td>${a[4]} (${a[5]}%)</td><td>${a[6]}</td><td>${a[7]}</td><td><div class="bar"><i style="width:${a[8]}%;background:${col[a[9]]}"></i></div>${a[8]}</td><td><span class="p ${a[9]}">${L[a[9]]}</span></td></tr>`).join("");
+        document.getElementById("rev").innerHTML = [["Renovação", "Fábio (12 dias, R$ 48k) e Ana (30 dias). Abrir com resultado e plano do próximo ciclo."], ["Ascensão", "Ana: Acelerador para Elite (+R$ 24k sobre o contrato atual). Ela mesma perguntou. Ligar antes dos 30 dias."], ["Portfólio complementar", "Isabela quer lançar o segundo produto. Oferecer o que a casa tiver para isso."], ["Indicação e Inside Club", "Diego indicou espontaneamente: formalizar o bônus, pedir a apresentação do amigo e convidá-lo para o Club."], ["Risco de perda", "Henrique, Bruno, Carla, Elaine e João somam cerca de R$ 144k em contratos. Reverter antes de virar cancelamento."]].map(x => `<div class="c"><h3>${x[0]}</h3><p class="m">${x[1]}</p></div>`).join("");
+        document.getElementById("pr").innerHTML = "<tr><th>#</th><th>Mentorado</th><th>Justificativa</th><th>Por que agora</th><th>O quê</th><th>Quando</th><th>Canal</th><th>Receita</th></tr>" + A.map((a, i) => `<tr><td>${i + 1}</td><td><b>${a[0]}</b><br><span class="p ${a[9]}">${L[a[9]]}</span></td><td style="min-width:260px">${J[a[0]]}</td><td class="m">${a[3]} dias sem contato · ${a[7]} · NPS ${a[6]}</td><td>${a[10]}</td><td>${a[11]}</td><td>${a[12]}</td><td>${a[13]}</td></tr>`).join("");
+        const W = [["Semana 1 · Estancar", ["Registrar tudo no InJourney (histórico do WhatsApp)", "Diagnóstico de handoff com o Comercial", "Implantação do checklist obrigatório de handoff no Comercial", "Atender os 11 clientes pela ordem de prioridade"]], ["Semana 2 · Estruturar", ["Checklist de handoff em uso", "Zerar 18 contas sem próxima etapa", "Modelo de confirmação D-1"]], ["Semana 3 · Padronizar", ["Daily de 15 min ativa", "Fila do dia com dono e prazo", "Zerar as outras 18 contas", "Meta Confirmação D-1: confirmadas 80%"]], ["Semana 4 · Medir", ["Reavaliar indicadores versus meta", "Renovações do mês com próxima etapa definida", "Playbook e respostas padrão publicados", "Levar leitura à liderança"]]];
+        document.getElementById("tl").innerHTML = W.map(w => `<div class="c"><h3>${w[0]}</h3><ul>${w[1].map(i => `<li>${i}</li>`).join("")}</ul></div>`).join("");
+    </script>
+</body>
+
+</html>
